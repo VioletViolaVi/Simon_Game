@@ -14,11 +14,11 @@ body {
 #title {
   text-align: center;
   font-size: 3.3em;
-  margin-top: 1em;
+  margin-top: 0.5em;
 }
 
 #left {
-  top: 12em;
+  top: 9em;
   position: absolute;
   cursor: pointer;
   left: 0.1em;
@@ -51,7 +51,7 @@ body {
 }
 
 #right {
-  top: 12em;
+  top: 9em;
   position: absolute;
   cursor: pointer;
   right: 0.1em;
@@ -89,7 +89,7 @@ body {
   background-color: white;
   border-radius: 100%;
   position: absolute;
-  top: 21em;
+  top: 18em;
   left: 7em;
   z-index: 1;
   border: black solid 0.5em;
@@ -104,5 +104,18 @@ body {
   display: inline;
   background-color: white;
   font-size: 2.4em;
+}
+
+#score, #restart {
+  font-size: 3em;
+  position: absolute;
+  bottom: 2.5em;
+  left: 1.5em;
+}
+
+#restart {
+  bottom: 1em;
+  left: 3em;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
