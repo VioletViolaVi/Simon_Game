@@ -17,24 +17,23 @@ $quarterPlacement: (
   margin: 0;
   padding: 0;
   background-color: lightskyblue;
+  font-family: "Comfortaa", cursive;
 }
 
 body {
-  cursor: pointer;
+  cursor: default;
 }
 
-@mixin quarters($quarterColor, $quarterOrder) {
-  width: 10em;
-  height: 10em;
-  margin: auto;
-  background-color: $quarterColor;
-  border: solid 0.5em $quarterColor;
-  border-radius: $quarterOrder;
+#title {
+  text-align: center;
+  font-size: 3.3em;
+  margin-top: 1em;
 }
 
 @mixin leftAndRight {
   top: 12em;
   position: absolute;
+  cursor: pointer;
 }
 
 #left {
@@ -45,6 +44,15 @@ body {
 #right {
   @include leftAndRight;
   right: 0em;
+}
+
+@mixin quarters($quarterColor, $quarterOrder) {
+  width: 10em;
+  height: 10em;
+  margin: auto;
+  background-color: $quarterColor;
+  border: solid 0.5em $quarterColor;
+  border-radius: $quarterOrder;
 }
 
 #topLeft {
