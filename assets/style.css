@@ -122,4 +122,77 @@ body {
   left: 3em;
   cursor: pointer;
 }
+
+/******************************************************* breakpoints */
+@media (min-width: 576px) {
+  #left {
+    left: 8.1em;
+  }
+  #right {
+    right: 8.1em;
+  }
+  #middle {
+    left: 6.5em;
+  }
+  #score, #restart {
+    left: 4em;
+  }
+  #restart {
+    left: 5.5em;
+  }
+}
+
+@media (min-width: 768px) {
+  #left {
+    left: 14.1em;
+  }
+  #right {
+    right: 14.1em;
+  }
+  #middle {
+    left: 9.5em;
+  }
+  #score, #restart {
+    left: 6em;
+  }
+  #restart {
+    left: 7.5em;
+  }
+}
+
+@media (min-width: 992px) {
+  #left {
+    left: 21.1em;
+  }
+  #right {
+    right: 21.1em;
+  }
+  #middle {
+    left: 13em;
+  }
+  #score, #restart {
+    left: 8.3em;
+  }
+  #restart {
+    left: 9.8em;
+  }
+}
+
+@media (min-width: 1366px) {
+  #left {
+    left: 33.1em;
+  }
+  #right {
+    right: 32.4em;
+  }
+  #middle {
+    left: 19em;
+  }
+  #score, #restart {
+    left: 12.3em;
+  }
+  #restart {
+    left: 13.9em;
+  }
+}
 /*# sourceMappingURL=style.css.map */

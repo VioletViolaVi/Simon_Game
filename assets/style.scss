@@ -19,6 +19,13 @@ $quarterPlacement: (
   "bottomRight": 0 0 100% 0,
 );
 
+$breakpoints: (
+  "576px": 576px,
+  "768px": 768px,
+  "992px": 992px,
+  "1366px": 1366px,
+);
+
 /******************************************************* universal */
 * {
   box-sizing: border-box;
@@ -148,4 +155,90 @@ body {
   bottom: 1em;
   left: 3em;
   cursor: pointer;
+}
+
+/******************************************************* breakpoints */
+@media (min-width: map-get($breakpoints, "576px")) {
+  #left {
+    left: 8.1em;
+  }
+
+  #right {
+    right: 8.1em;
+  }
+
+  #middle {
+    left: 6.5em;
+  }
+
+  #score {
+    left: 4em;
+  }
+
+  #restart {
+    left: 5.5em;
+  }
+}
+@media (min-width: map-get($breakpoints, "768px")) {
+  #left {
+    left: 14.1em;
+  }
+
+  #right {
+    right: 14.1em;
+  }
+
+  #middle {
+    left: 9.5em;
+  }
+
+  #score {
+    left: 6em;
+  }
+
+  #restart {
+    left: 7.5em;
+  }
+}
+@media (min-width: map-get($breakpoints, "992px")) {
+  #left {
+    left: 21.1em;
+  }
+
+  #right {
+    right: 21.1em;
+  }
+
+  #middle {
+    left: 13em;
+  }
+
+  #score {
+    left: 8.3em;
+  }
+
+  #restart {
+    left: 9.8em;
+  }
+}
+@media (min-width: map-get($breakpoints, "1366px")) {
+  #left {
+    left: 33.1em;
+  }
+
+  #right {
+    right: 32.4em;
+  }
+
+  #middle {
+    left: 19em;
+  }
+
+  #score {
+    left: 12.3em;
+  }
+
+  #restart {
+    left: 13.9em;
+  }
 }
