@@ -3,6 +3,58 @@
           box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: aqua;
+  background-color: lightskyblue;
+}
+
+body {
+  cursor: pointer;
+}
+
+#left {
+  top: 12em;
+  position: absolute;
+  left: 0em;
+}
+
+#right {
+  top: 12em;
+  position: absolute;
+  right: 0em;
+}
+
+#topLeft {
+  width: 10em;
+  height: 10em;
+  margin: auto;
+  background-color: green;
+  border: solid 0.5em green;
+  border-radius: 100% 0 0 0;
+}
+
+#topRight {
+  width: 10em;
+  height: 10em;
+  margin: auto;
+  background-color: red;
+  border: solid 0.5em red;
+  border-radius: 0 100% 0 0;
+}
+
+#bottomLeft {
+  width: 10em;
+  height: 10em;
+  margin: auto;
+  background-color: yellow;
+  border: solid 0.5em yellow;
+  border-radius: 0 0 100% 0;
+}
+
+#bottomRight {
+  width: 10em;
+  height: 10em;
+  margin: auto;
+  background-color: blue;
+  border: solid 0.5em blue;
+  border-radius: 0 0 0 100%;
 }
 /*# sourceMappingURL=style.css.map */

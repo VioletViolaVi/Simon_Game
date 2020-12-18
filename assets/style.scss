@@ -1,6 +1,76 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background-color: aqua;
+$background_colors: (
+  "greenBG": green,
+  "redBG": red,
+  "yellowBG": yellow,
+  "blueBG": blue,
+);
+
+$quarterPlacement: (
+  "topLeft": 100% 0 0 0,
+  "topRight": 0 100% 0 0,
+  "bottomLeft": 0 0 100% 0,
+  "bottomRight": 0 0 0 100%,
+);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: lightskyblue;
+}
+
+body {
+  cursor: pointer;
+}
+
+@mixin quarters($quarterColor, $quarterOrder) {
+  width: 10em;
+  height: 10em;
+  margin: auto;
+  background-color: $quarterColor;
+  border: solid 0.5em $quarterColor;
+  border-radius: $quarterOrder;
+}
+
+@mixin leftAndRight {
+  top: 12em;
+  position: absolute;
+}
+
+#left {
+  @include leftAndRight;
+  left: 0em;
+}
+
+#right {
+  @include leftAndRight;
+  right: 0em;
+}
+
+#topLeft {
+  @include quarters(
+    map-get($background_colors, "greenBG"),
+    map-get($quarterPlacement, "topLeft")
+  );
+}
+
+#topRight {
+  @include quarters(
+    map-get($background_colors, "redBG"),
+    map-get($quarterPlacement, "topRight")
+  );
+}
+
+#bottomLeft {
+  @include quarters(
+    map-get($background_colors, "yellowBG"),
+    map-get($quarterPlacement, "bottomLeft")
+  );
+}
+
+#bottomRight {
+  @include quarters(
+    map-get($background_colors, "blueBG"),
+    map-get($quarterPlacement, "bottomRight")
+  );
 }
