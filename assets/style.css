@@ -21,49 +21,77 @@ body {
   top: 12em;
   position: absolute;
   cursor: pointer;
-  left: 0em;
+  left: 0.1em;
+}
+
+#left #topLeft {
+  width: 10em;
+  height: 10em;
+  margin: auto;
+  border: black solid 0.4em;
+  background-color: green;
+  border-radius: 100% 0 0 0;
+}
+
+#left #topLeft:hover {
+  background-color: rgba(0, 128, 0, 0.664);
+}
+
+#left #bottomLeft {
+  width: 10em;
+  height: 10em;
+  margin: auto;
+  border: black solid 0.4em;
+  background-color: yellow;
+  border-radius: 0 0 0 100%;
+}
+
+#left #bottomLeft:hover {
+  background-color: rgba(255, 255, 0, 0.582);
 }
 
 #right {
   top: 12em;
   position: absolute;
   cursor: pointer;
-  right: 0em;
+  right: 0.1em;
 }
 
-#topLeft {
+#right #topRight {
   width: 10em;
   height: 10em;
   margin: auto;
-  background-color: green;
-  border: solid 0.5em green;
-  border-radius: 100% 0 0 0;
-}
-
-#topRight {
-  width: 10em;
-  height: 10em;
-  margin: auto;
+  border: black solid 0.4em;
   background-color: red;
-  border: solid 0.5em red;
   border-radius: 0 100% 0 0;
 }
 
-#bottomLeft {
+#right #topRight:hover {
+  background-color: rgba(255, 0, 0, 0.76);
+}
+
+#right #bottomRight {
   width: 10em;
   height: 10em;
   margin: auto;
-  background-color: yellow;
-  border: solid 0.5em yellow;
+  border: black solid 0.4em;
+  background-color: blue;
   border-radius: 0 0 100% 0;
 }
 
-#bottomRight {
-  width: 10em;
+#right #bottomRight:hover {
+  background-color: rgba(0, 0, 255, 0.349);
+}
+
+#middle {
   height: 10em;
-  margin: auto;
-  background-color: blue;
-  border: solid 0.5em blue;
-  border-radius: 0 0 0 100%;
+  width: 10em;
+  background-color: white;
+  border-radius: 100%;
+  position: absolute;
+  top: 17em;
+  left: 5em;
+  z-index: 1;
+  border: black solid 0.5em;
 }
 /*# sourceMappingURL=style.css.map */

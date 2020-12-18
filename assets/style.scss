@@ -5,11 +5,18 @@ $background_colors: (
   "blueBG": blue,
 );
 
+$hover_colors: (
+  "greenHover": rgba(0, 128, 0, 0.664),
+  "redHover": rgba(255, 0, 0, 0.76),
+  "yellowHover": rgba(255, 255, 0, 0.582),
+  "blueHover": rgba(0, 0, 255, 0.349),
+);
+
 $quarterPlacement: (
   "topLeft": 100% 0 0 0,
   "topRight": 0 100% 0 0,
-  "bottomLeft": 0 0 100% 0,
-  "bottomRight": 0 0 0 100%,
+  "bottomLeft": 0 0 0 100%,
+  "bottomRight": 0 0 100% 0,
 );
 
 * {
@@ -36,49 +43,78 @@ body {
   cursor: pointer;
 }
 
+@mixin quarters($colorPlaceholder, $orderPlaceholder) {
+  width: 10em;
+  height: 10em;
+  margin: auto;
+  border: black solid 0.4em;
+  background-color: $colorPlaceholder;
+  border-radius: $orderPlaceholder;
+}
+
+@mixin hovers($hoversPlaceholder) {
+  background-color: $hoversPlaceholder;
+}
+
 #left {
   @include leftAndRight;
-  left: 0em;
+  left: 0.1em;
+  & #topLeft {
+    @include quarters(
+      map-get($background_colors, "greenBG"),
+      map-get($quarterPlacement, "topLeft")
+    );
+  }
+  & #topLeft:hover {
+    @include hovers(map-get($hover_colors, "greenHover"));
+  }
+
+  & #bottomLeft {
+    @include quarters(
+      map-get($background_colors, "yellowBG"),
+      map-get($quarterPlacement, "bottomLeft")
+    );
+  }
+  & #bottomLeft:hover {
+    @include hovers(map-get($hover_colors, "yellowHover"));
+  }
 }
 
 #right {
   @include leftAndRight;
-  right: 0em;
+  right: 0.1em;
+  & #topRight {
+    @include quarters(
+      map-get($background_colors, "redBG"),
+      map-get($quarterPlacement, "topRight")
+    );
+  }
+  & #topRight:hover {
+    @include hovers(map-get($hover_colors, "redHover"));
+  }
+  & #bottomRight {
+    @include quarters(
+      map-get($background_colors, "blueBG"),
+      map-get($quarterPlacement, "bottomRight")
+    );
+  }
+  & #bottomRight:hover {
+    @include hovers(map-get($hover_colors, "blueHover"));
+  }
 }
 
-@mixin quarters($quarterColor, $quarterOrder) {
-  width: 10em;
+@mixin middleCircle {
   height: 10em;
-  margin: auto;
-  background-color: $quarterColor;
-  border: solid 0.5em $quarterColor;
-  border-radius: $quarterOrder;
+  width: 10em;
+  background-color: white;
+  border-radius: 100%;
+  position: absolute;
+  top: 17em;
+  left: 5em;
+  z-index: 1;
+  border: black solid 0.5em;
 }
 
-#topLeft {
-  @include quarters(
-    map-get($background_colors, "greenBG"),
-    map-get($quarterPlacement, "topLeft")
-  );
-}
-
-#topRight {
-  @include quarters(
-    map-get($background_colors, "redBG"),
-    map-get($quarterPlacement, "topRight")
-  );
-}
-
-#bottomLeft {
-  @include quarters(
-    map-get($background_colors, "yellowBG"),
-    map-get($quarterPlacement, "bottomLeft")
-  );
-}
-
-#bottomRight {
-  @include quarters(
-    map-get($background_colors, "blueBG"),
-    map-get($quarterPlacement, "bottomRight")
-  );
+#middle {
+  @include middleCircle();
 }
