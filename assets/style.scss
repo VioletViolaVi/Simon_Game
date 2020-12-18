@@ -19,6 +19,7 @@ $quarterPlacement: (
   "bottomRight": 0 0 100% 0,
 );
 
+/******************************************************* universal */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -37,6 +38,7 @@ body {
   margin-top: 0.5em;
 }
 
+/******************************************************* Quarters */
 @mixin leftAndRight {
   top: 9em;
   position: absolute;
@@ -103,23 +105,20 @@ body {
   }
 }
 
+/******************************************************* middle circle */
 @mixin middleCircle {
-  height: 10em;
-  width: 10em;
+  height: 5em;
+  width: 5em;
   background-color: white;
   border-radius: 100%;
   position: absolute;
-  top: 18em;
-  left: 7em;
+  top: 7em;
+  left: 2.5em;
   z-index: 1;
-  border: black solid 0.5em;
+  border: black solid 0.3em;
   cursor: pointer;
-}
-
-@mixin startBtn {
-  display: inline;
-  background-color: white;
-  font-size: 2.4em;
+  font-weight: 900;
+  font-size: 2em;
 }
 
 #middle {
@@ -127,11 +126,12 @@ body {
   &:focus {
     outline: none;
   }
-  & #start {
-    @include startBtn();
+  &:hover {
+    background-color: whitesmoke;
   }
 }
 
+/******************************************************* score & reset */
 @mixin scoreText {
   font-size: 3em;
   position: absolute;

@@ -1,3 +1,4 @@
+/******************************************************* universal */
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -17,6 +18,7 @@ body {
   margin-top: 0.5em;
 }
 
+/******************************************************* Quarters */
 #left {
   top: 9em;
   position: absolute;
@@ -83,29 +85,31 @@ body {
   background-color: rgba(0, 0, 255, 0.349);
 }
 
+/******************************************************* middle circle */
 #middle {
-  height: 10em;
-  width: 10em;
+  height: 5em;
+  width: 5em;
   background-color: white;
   border-radius: 100%;
   position: absolute;
-  top: 18em;
-  left: 7em;
+  top: 7em;
+  left: 2.5em;
   z-index: 1;
-  border: black solid 0.5em;
+  border: black solid 0.3em;
   cursor: pointer;
+  font-weight: 900;
+  font-size: 2em;
 }
 
 #middle:focus {
   outline: none;
 }
 
-#middle #start {
-  display: inline;
-  background-color: white;
-  font-size: 2.4em;
+#middle:hover {
+  background-color: whitesmoke;
 }
 
+/******************************************************* score & reset */
 #score, #restart {
   font-size: 3em;
   position: absolute;
