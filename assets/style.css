@@ -4,7 +4,7 @@
           box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: lightskyblue;
+  background-color: #f7c261;
   font-family: "Comfortaa", cursive;
 }
 
@@ -20,7 +20,7 @@ body {
 
 /******************************************************* Quarters */
 #left {
-  top: 9em;
+  top: 7em;
   position: absolute;
   cursor: pointer;
   left: 0.1em;
@@ -53,7 +53,7 @@ body {
 }
 
 #right {
-  top: 9em;
+  top: 7em;
   position: absolute;
   cursor: pointer;
   right: 0.1em;
@@ -92,7 +92,7 @@ body {
   background-color: white;
   border-radius: 100%;
   position: absolute;
-  top: 7em;
+  top: 6em;
   left: 2.5em;
   z-index: 1;
   border: black solid 0.3em;

@@ -31,7 +31,7 @@ $breakpoints: (
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: lightskyblue;
+  background-color: rgb(247, 194, 97);
   font-family: "Comfortaa", cursive;
 }
 
@@ -47,7 +47,7 @@ body {
 
 /******************************************************* Quarters */
 @mixin leftAndRight {
-  top: 9em;
+  top: 7em;
   position: absolute;
   cursor: pointer;
 }
@@ -119,7 +119,7 @@ body {
   background-color: white;
   border-radius: 100%;
   position: absolute;
-  top: 7em;
+  top: 6em;
   left: 2.5em;
   z-index: 1;
   border: black solid 0.3em;
