@@ -7,9 +7,9 @@ $background_colors: (
 
 $hover_colors: (
   "greenHover": rgba(0, 128, 0, 0.664),
-  "redHover": rgba(255, 0, 0, 0.76),
+  "redHover": rgba(255, 0, 0, 0.63),
   "yellowHover": rgba(255, 255, 0, 0.582),
-  "blueHover": rgba(0, 0, 255, 0.349),
+  "blueHover": rgba(0, 0, 255, 0.514),
 );
 
 $quarterPlacement: (
@@ -28,6 +28,7 @@ $breakpoints: (
 
 /******************************************************* universal */
 * {
+  list-style: none;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -138,22 +139,23 @@ body {
   }
 }
 
-/******************************************************* score & reset */
-@mixin scoreText {
-  font-size: 3em;
-  position: absolute;
-  bottom: 2.5em;
-  left: 1.5em;
+/******************************************************* scores & reset */
+@mixin scoresAndReset {
+  font-size: 2.5em;
+  text-align: center;
+  margin-top: 9.5em;
 }
 
-#score {
-  @include scoreText();
+#scoresAndRestart {
+  @include scoresAndReset();
+}
+
+#highScore {
+  padding-top: 0.1em;
 }
 
 #restart {
-  @extend #score;
-  bottom: 1em;
-  left: 3em;
+  padding-top: 0.5em;
   cursor: pointer;
 }
 
@@ -170,14 +172,6 @@ body {
   #middle {
     left: 6.5em;
   }
-
-  #score {
-    left: 4em;
-  }
-
-  #restart {
-    left: 5.5em;
-  }
 }
 @media (min-width: map-get($breakpoints, "768px")) {
   #left {
@@ -190,14 +184,6 @@ body {
 
   #middle {
     left: 9.5em;
-  }
-
-  #score {
-    left: 6em;
-  }
-
-  #restart {
-    left: 7.5em;
   }
 }
 @media (min-width: map-get($breakpoints, "992px")) {
@@ -212,14 +198,6 @@ body {
   #middle {
     left: 13em;
   }
-
-  #score {
-    left: 8.3em;
-  }
-
-  #restart {
-    left: 9.8em;
-  }
 }
 @media (min-width: map-get($breakpoints, "1366px")) {
   #left {
@@ -232,13 +210,5 @@ body {
 
   #middle {
     left: 19em;
-  }
-
-  #score {
-    left: 12.3em;
-  }
-
-  #restart {
-    left: 13.9em;
   }
 }

@@ -1,5 +1,4 @@
 $("document").ready(function () {
-  
   let flash;
   let flashOrder = [];
   let score = 0;
@@ -9,12 +8,25 @@ $("document").ready(function () {
   let yellow = document.querySelector("#bottomLeft");
   let blue = document.querySelector("#bottomRight");
 
-  function clickedGreen() {
-    green.addEventListener("click", function () {
-        console.log("hi");
+  let start = document.querySelector("#middle");
+
+  function startBtn() {
+    start.addEventListener("click", function () {
+      if (start) {
+        console.log("START");
+      }
     });
-  };
-  clickedGreen();
+  }
+  startBtn();
+
+  function greenBtn() {
+    green.addEventListener("click", function () {
+      if (green) {
+        console.log("green");
+      };
+    });
+  }
+  greenBtn();
 
 
 
@@ -41,4 +53,7 @@ $("document").ready(function () {
 
 
 
+
+
+  
 });
