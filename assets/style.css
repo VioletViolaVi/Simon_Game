@@ -89,9 +89,20 @@ body {
   background-color: white;
   border-radius: 100%;
   position: absolute;
-  top: 17em;
-  left: 5em;
+  top: 21em;
+  left: 7em;
   z-index: 1;
   border: black solid 0.5em;
+  cursor: pointer;
+}
+
+#middle:focus {
+  outline: none;
+}
+
+#middle #start {
+  display: inline;
+  background-color: white;
+  font-size: 2.4em;
 }
 /*# sourceMappingURL=style.css.map */
