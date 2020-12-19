@@ -25,43 +25,28 @@
             <div id="1" class="quarter red"></div>
             <div id="2" class="quarter yellow"></div>
             <div id="3" class="quarter blue"></div>
-            <div id="controls">
-                <div id="toyName">SIMON</div>
-                <div id="score">00</div>
-                <div id="startBtn">START</div>
-                <div id="strictBtn">STRICT</div>
-                <div id="onOffSwitchContainer">
-                    <p class="on"></p>
-                    <p class="off"></p>
-                </div>
+            <div>
+                <ul id="middleCircle">
+                    <li id="toyName">SIMON</li>
+                    <li id="score">00</li>
+                    <li>
+                        <span id="startBtn">START</span>
+                        <span id="strictBtn">STRICT</span>
+                    </li>
+                    <li>
+                        <span>on</span>
+                        <input type="checkbox" name="onOff" id="onOff">
+                        <span>off</span>
+                    </li>
+                </ul>                
             </div>
         </div>
     </div>
-
-    <!-- <div id="left">
-        <div id="topLeft"></div>
-        <div id="bottomLeft"></div>              
-    </div>
-
-    <button id="middle">
-        START
-    </button>
-
-    <input type="checkbox" name="onOff" id="onOff">
-    
-    <div id="right">
-        <div id="topRight"></div>
-        <div id="bottomRight"></div>            
-    </div>
-
-    <div>
-        <ul id="scoresAndRestart">
-            <li id="score">Score: 0</li>
-            <li id="highScore">High Score: 0</li>
-            <li id="restart"><i class="fas fa-redo-alt"></i></li>
-        </ul>         
-    </div> -->
- 
+    <ul id="extraInfo">
+        <li id="yourScore">Your Score: 0</li>
+        <li id="highScore">High Score: 0</li>
+        <li id="restart"><i class="fas fa-redo-alt"></i></li>
+    </ul>         
 
     <!-- custom js -->
     <script src="assets/scritps.js"></script>

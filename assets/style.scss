@@ -19,13 +19,16 @@ body {
 }
 
 #container {
-  margin: 6em auto;
+  margin: 4em auto 2em;
   text-align: center;
-  border: solid 0.5em black;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
 }
 
-/******************************************************* sass maps */
+/******************************************************* sass maps/styles */
+$blackBorder: solid 0.5em black;
+
 $curvedQuarters: (
   "greenTL": 100% 0 0 0,
   "redTR": 0 100% 0 0,
@@ -56,12 +59,10 @@ $hover_colors: (
 
 /******************************************************************************* quarters */
 @mixin generalQuarters {
-  // position: relative;
-  // margin: 0em;
   float: left;
   width: 9em;
   height: 9em;
-  border: solid 0.5em white;
+  border: $blackBorder;
   cursor: pointer;
 }
 
@@ -109,9 +110,8 @@ $hover_colors: (
 
 /******************************************************************************* full simon board */
 @mixin simonBoard {
-  width: 19em;
-  height: 19em;
-  border: solid 0.5em gray;
+  width: 18em;
+  height: 18em;
   border-radius: 50%;
 }
 
@@ -159,149 +159,119 @@ $hover_colors: (
   }
 }
 
+/******************************************************************************* middle circle*/
+@mixin generalMiddleCircle {
+  border: $blackBorder;
+  border-radius: 50%;
+  background-color: white;
+  height: 11em;
+  width: 11em;
+  z-index: 1;
+  position: absolute;
+  margin: 3.5em;
+  padding-top: 1.2em;
+}
 
+@mixin stylesToyName {
+  font-weight: 900;
+  font-size: 1.5em;
+  margin-bottom: 0.3em;
+}
 
+@mixin stylesScore {
+  background-color: orange;
+  display: inline;
+  padding: 0.2em 0.9em 0em;
+  border: solid 0.2em orangered;
+  border-radius: 1em;
+}
 
+@mixin stylesStart {
+  background-color: lightgray;
+  border-radius: 10em;
+  padding: 0.2em 0.5em 0em;
+  cursor: pointer;
+}
 
+@mixin checkBox {
+  position: relative;
+  width: 3em;
+  height: 1em;
+  -webkit-appearance: none;
+  background-color: pink;
+  outline: none;
+  border-radius: 10em;
+  box-shadow: inset 0 0 1em rgba(0, 0, 0, 0.267);
+  cursor: pointer;
+}
 
+@mixin checkBoxBefore {
+  content: "";
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  border-radius: 0.5em;
+  top: 0em;
+  left: 0em;
+  background-color: purple;
+  transition: 0.3s;
+  transform: scale(1.1);
+}
 
+#middleCircle {
+  @include generalMiddleCircle();
+  & #toyName {
+    @include stylesToyName();
+  }
+  & #score {
+    @include stylesScore();
+  }
+  & #startBtn {
+    @include stylesStart();
+  }
+  & #strictBtn {
+    @include stylesStart();
+  }
+  & #startBtn:hover,
+  & #strictBtn:hover {
+    font-weight: 900;
+  }
+  & input[type="checkbox"] {
+    @include checkBox();
+  }
+  & input:checked[type="checkbox"] {
+    background-color: rgb(202, 137, 148);
+  }
+  & input[type="checkbox"]::before {
+    @include checkBoxBefore();
+  }
+  & input:checked[type="checkbox"]::before {
+    left: 2.1em;
+  }
+  & li:nth-child(3),
+  & li:nth-child(4) {
+    margin-top: 1em;
+  }
+}
 
+@mixin stylesExtraInfo {
+  text-align: center;
+  font-size: 2em;
+}
 
-
-
-
-
-
-
-
-
-
-
-/******************************************************* Quarters */
-// @mixin leftAndRight {
-//   top: 7em;
-//   position: absolute;
-//   cursor: pointer;
-// }
-
-// @mixin quarters($colorPlaceholder, $orderPlaceholder) {
-//   width: 8em;
-//   height: 8em;
-//   margin: auto;
-//   border: black solid 0.4em;
-//   background-color: $colorPlaceholder;
-//   border-radius: $orderPlaceholder;
-// }
-
-// @mixin hovers($hoversPlaceholder) {
-//   background-color: $hoversPlaceholder;
-// }
-
-// #left {
-//   @include leftAndRight;
-//   left: 2em;
-//   & #topLeft {
-//     @include quarters(
-//       map-get($background_colors, "greenBG"),
-//       map-get($quarterPlacement, "topLeft")
-//     );
-//   }
-//   & #topLeft:hover {
-//     @include hovers(map-get($hover_colors, "greenHover"));
-//   }
-
-//   & #bottomLeft {
-//     @include quarters(
-//       map-get($background_colors, "yellowBG"),
-//       map-get($quarterPlacement, "bottomLeft")
-//     );
-//   }
-//   & #bottomLeft:hover {
-//     @include hovers(map-get($hover_colors, "yellowHover"));
-//   }
-// }
-
-// #right {
-//   @include leftAndRight;
-//   right: 2em;
-//   & #topRight {
-//     @include quarters(
-//       map-get($background_colors, "redBG"),
-//       map-get($quarterPlacement, "topRight")
-//     );
-//   }
-//   & #topRight:hover {
-//     @include hovers(map-get($hover_colors, "redHover"));
-//   }
-//   & #bottomRight {
-//     @include quarters(
-//       map-get($background_colors, "blueBG"),
-//       map-get($quarterPlacement, "bottomRight")
-//     );
-//   }
-//   & #bottomRight:hover {
-//     @include hovers(map-get($hover_colors, "blueHover"));
-//   }
-// }
-
-/******************************************************* middle circle */
-// @mixin middleCircle {
-//   height: 4em;
-//   width: 4em;
-//   background-color: white;
-//   border-radius: 100%;
-//   position: absolute;
-//   top: 5em;
-//   left: 2.5em;
-//   z-index: 1;
-//   border: black solid 0.3em;
-//   cursor: pointer;
-//   font-weight: 900;
-//   font-size: 2em;
-// }
-
-// #middle {
-//   @include middleCircle();
-//   &:focus {
-//     outline: none;
-//   }
-//   &:hover {
-//     background-color: whitesmoke;
-//   }
-// }
-
-// @mixin onOffBtn {
-//   position: absolute;
-//   top: 23em;
-//   left: 11em;
-//   z-index: 1;
-//   height: 2em;
-//   width: 2em;
-// }
-
-// #onOff {
-//   @include onOffBtn();
-// }
-
-/******************************************************* scores & reset */
-// @mixin scoresAndReset {
-//   font-size: 2.5em;
-//   text-align: center;
-//   padding-top: 9.5em;
-// }
-
-// #scoresAndRestart {
-//   @include scoresAndReset();
-// }
-
-// #highScore {
-//   padding-top: 0.1em;
-// }
-
-// #restart {
-//   padding-top: 0.5em;
-//   cursor: pointer;
-// }
+#extraInfo {
+  @include stylesExtraInfo();
+  & #highScore,
+  & #restart {
+    margin-top: 0.5em;
+  }
+  & #restart {
+    cursor: pointer;
+  }
+  & #restart:hover {
+    font-size: 1.1em;
+  }
+}
 
 /******************************************************* breakpoints */
 // @media (min-width: map-get($breakpoints, "576px")) {

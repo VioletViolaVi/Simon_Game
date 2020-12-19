@@ -20,19 +20,24 @@ body {
 }
 
 #container {
-  margin: 6em auto;
+  margin: 4em auto 2em;
   text-align: center;
-  border: solid 0.5em black;
   border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-/******************************************************* sass maps */
+/******************************************************* sass maps/styles */
 /******************************************************************************* quarters */
 .quarter {
   float: left;
   width: 9em;
   height: 9em;
-  border: solid 0.5em white;
+  border: solid 0.5em black;
   cursor: pointer;
 }
 
@@ -40,9 +45,8 @@ body {
 /******************************************************************************* hover colours */
 /******************************************************************************* full simon board */
 #simonBoard {
-  width: 19em;
-  height: 19em;
-  border: solid 0.5em gray;
+  width: 18em;
+  height: 18em;
   border-radius: 50%;
 }
 
@@ -82,8 +86,110 @@ body {
   background-color: rgba(0, 0, 255, 0.514);
 }
 
-/******************************************************* Quarters */
-/******************************************************* middle circle */
-/******************************************************* scores & reset */
+/******************************************************************************* middle circle*/
+#middleCircle {
+  border: solid 0.5em black;
+  border-radius: 50%;
+  background-color: white;
+  height: 11em;
+  width: 11em;
+  z-index: 1;
+  position: absolute;
+  margin: 3.5em;
+  padding-top: 1.2em;
+}
+
+#middleCircle #toyName {
+  font-weight: 900;
+  font-size: 1.5em;
+  margin-bottom: 0.3em;
+}
+
+#middleCircle #score {
+  background-color: orange;
+  display: inline;
+  padding: 0.2em 0.9em 0em;
+  border: solid 0.2em orangered;
+  border-radius: 1em;
+}
+
+#middleCircle #startBtn {
+  background-color: lightgray;
+  border-radius: 10em;
+  padding: 0.2em 0.5em 0em;
+  cursor: pointer;
+}
+
+#middleCircle #strictBtn {
+  background-color: lightgray;
+  border-radius: 10em;
+  padding: 0.2em 0.5em 0em;
+  cursor: pointer;
+}
+
+#middleCircle #startBtn:hover,
+#middleCircle #strictBtn:hover {
+  font-weight: 900;
+}
+
+#middleCircle input[type="checkbox"] {
+  position: relative;
+  width: 3em;
+  height: 1em;
+  -webkit-appearance: none;
+  background-color: pink;
+  outline: none;
+  border-radius: 10em;
+  -webkit-box-shadow: inset 0 0 1em rgba(0, 0, 0, 0.267);
+          box-shadow: inset 0 0 1em rgba(0, 0, 0, 0.267);
+  cursor: pointer;
+}
+
+#middleCircle input:checked[type="checkbox"] {
+  background-color: #ca8994;
+}
+
+#middleCircle input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  border-radius: 0.5em;
+  top: 0em;
+  left: 0em;
+  background-color: purple;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+#middleCircle input:checked[type="checkbox"]::before {
+  left: 2.1em;
+}
+
+#middleCircle li:nth-child(3),
+#middleCircle li:nth-child(4) {
+  margin-top: 1em;
+}
+
+#extraInfo {
+  text-align: center;
+  font-size: 2em;
+}
+
+#extraInfo #highScore,
+#extraInfo #restart {
+  margin-top: 0.5em;
+}
+
+#extraInfo #restart {
+  cursor: pointer;
+}
+
+#extraInfo #restart:hover {
+  font-size: 1.1em;
+}
+
 /******************************************************* breakpoints */
 /*# sourceMappingURL=style.css.map */
