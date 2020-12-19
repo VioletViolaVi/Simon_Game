@@ -19,6 +19,12 @@
 <body>
     <h1 id="title">Simon Says</h1>
 
+    <ul id="extraInfo">
+        <li id="yourScore">Your Score: 0</li>
+        <li id="highScore">High Score: 0</li>
+        <li id="restart"><i class="fas fa-redo-alt"></i></li>
+    </ul>  
+
     <div id="container">
         <div id="simonBoard">
             <div id="0" class="quarter green"></div>
@@ -34,19 +40,14 @@
                         <span id="strictBtn">STRICT</span>
                     </li>
                     <li>
-                        <span>on</span>
+                        <span id="on">on</span>
                         <input type="checkbox" name="onOff" id="onOff">
-                        <span>off</span>
+                        <span id="off">off</span>
                     </li>
                 </ul>                
             </div>
         </div>
-    </div>
-    <ul id="extraInfo">
-        <li id="yourScore">Your Score: 0</li>
-        <li id="highScore">High Score: 0</li>
-        <li id="restart"><i class="fas fa-redo-alt"></i></li>
-    </ul>         
+    </div>       
 
     <!-- custom js -->
     <script src="assets/scritps.js"></script>

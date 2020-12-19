@@ -1,3 +1,4 @@
+/******************************************************* sass maps/styles */
 /******************************************************* universal */
 * {
   list-style: none;
@@ -20,7 +21,7 @@ body {
 }
 
 #container {
-  margin: 4em auto 2em;
+  margin: 2em auto 2em;
   text-align: center;
   border-radius: 50%;
   display: -webkit-box;
@@ -31,7 +32,26 @@ body {
           justify-content: center;
 }
 
-/******************************************************* sass maps/styles */
+/******************************************************************************* extra info*/
+#extraInfo {
+  text-align: center;
+  font-size: 2em;
+}
+
+#extraInfo #yourScore,
+#extraInfo #highScore,
+#extraInfo #restart {
+  margin-top: 0.5em;
+}
+
+#extraInfo #restart {
+  cursor: pointer;
+}
+
+#extraInfo #restart:hover {
+  font-size: 1.1em;
+}
+
 /******************************************************************************* quarters */
 .quarter {
   float: left;
@@ -168,28 +188,181 @@ body {
   left: 2.1em;
 }
 
-#middleCircle li:nth-child(3),
-#middleCircle li:nth-child(4) {
-  margin-top: 1em;
+#middleCircle li:nth-child(3) {
+  margin: 1em 0em;
 }
 
-#extraInfo {
-  text-align: center;
-  font-size: 2em;
+/******************************************************************************* breakpoints */
+@media (min-width: 576px) {
+  #extraInfo {
+    margin-top: 0.5em;
+  }
+  #extraInfo #yourScore,
+  #extraInfo #highScore {
+    display: inline;
+    padding: 0em 0.3em;
+  }
+  #container {
+    margin-top: 1em;
+  }
+  #simonBoard {
+    width: 30em;
+    height: 30em;
+  }
+  #simonBoard .quarter {
+    width: 15em;
+    height: 15em;
+  }
+  #middleCircle {
+    margin: 7.5em;
+    height: 15em;
+    width: 15em;
+  }
+  #middleCircle #toyName {
+    font-size: 2.5em;
+    margin: 0.3em 0em;
+  }
+  #middleCircle li:nth-child(3) {
+    margin: 1.5em 0em;
+  }
 }
 
-#extraInfo #highScore,
-#extraInfo #restart {
-  margin-top: 0.5em;
+@media (min-width: 768px) {
+  #extraInfo #yourScore,
+  #extraInfo #highScore {
+    padding: 0em 1.8em;
+  }
+  #simonBoard {
+    width: 40em;
+    height: 40em;
+  }
+  #simonBoard .quarter {
+    width: 20em;
+    height: 20em;
+  }
+  #middleCircle {
+    margin: 9.5em;
+    height: 22em;
+    width: 22em;
+  }
+  #middleCircle #toyName {
+    font-size: 3em;
+    margin: 0.4em 0em;
+  }
+  #middleCircle #score {
+    font-size: 2.5em;
+  }
+  #middleCircle #startBtn,
+  #middleCircle #strictBtn {
+    font-size: 2em;
+  }
+  #middleCircle input[type="checkbox"] {
+    width: 9em;
+    height: 2em;
+  }
+  #middleCircle #on,
+  #middleCircle #off {
+    font-size: 2.5em;
+  }
+  #middleCircle input[type="checkbox"]::before {
+    width: 2em;
+    height: 2em;
+    border-radius: 1em;
+  }
+  #middleCircle input:checked[type="checkbox"]::before {
+    left: 7em;
+  }
+  #middleCircle li:nth-child(3) {
+    margin: 2em 0em 1.5em;
+  }
 }
 
-#extraInfo #restart {
-  cursor: pointer;
+@media (min-width: 992px) {
+  #title {
+    font-size: 4em;
+  }
+  #extraInfo #yourScore,
+  #extraInfo #highScore {
+    font-size: 1.3em;
+  }
+  #extraInfo #restart {
+    font-size: 1.2em;
+    margin-top: 0em;
+  }
+  #extraInfo #restart:hover {
+    font-size: 1.4em;
+  }
 }
 
-#extraInfo #restart:hover {
-  font-size: 1.1em;
+@media (min-width: 1200px) {
+  #simonBoard {
+    width: 35em;
+    height: 35em;
+  }
+  #simonBoard .quarter {
+    width: 17em;
+    height: 17em;
+  }
+  #middleCircle {
+    margin: 7.5em;
+    height: 20em;
+    width: 20em;
+  }
+  #middleCircle #toyName {
+    font-size: 2.5em;
+    margin: 0.5em 0em;
+  }
+  #middleCircle #score {
+    font-size: 2em;
+  }
+  #middleCircle #startBtn,
+  #middleCircle #strictBtn {
+    font-size: 1.8em;
+  }
+  #middleCircle #on,
+  #middleCircle #off {
+    font-size: 2em;
+  }
 }
 
-/******************************************************* breakpoints */
+@media (min-width: 1366px) {
+  #title {
+    font-size: 5em;
+  }
+  #extraInfo #yourScore,
+  #extraInfo #highScore {
+    font-size: 1.5em;
+  }
+  #extraInfo #restart {
+    font-size: 1.6em;
+    margin-top: 0em;
+  }
+  #extraInfo #restart:hover {
+    font-size: 1.8em;
+  }
+  #simonBoard {
+    width: 44em;
+    height: 44em;
+  }
+  #simonBoard .quarter {
+    width: 22em;
+    height: 22em;
+  }
+  #middleCircle {
+    margin: 9.5em;
+    height: 26em;
+    width: 26em;
+  }
+  #middleCircle #toyName {
+    font-size: 3em;
+    margin-top: 1em;
+  }
+  #middleCircle #score,
+  #middleCircle #startBtn,
+  #middleCircle #strictBtn,
+  #middleCircle #on,
+  #middleCircle #off {
+    font-size: 2.5em;
+  }
+}
 /*# sourceMappingURL=style.css.map */

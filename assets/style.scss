@@ -1,31 +1,3 @@
-/******************************************************* universal */
-* {
-  list-style: none;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Comfortaa", cursive;
-}
-
-body {
-  cursor: default;
-  background-color: rgb(247, 194, 97);
-}
-
-#title {
-  text-align: center;
-  font-size: 3.3em;
-  margin-top: 0.5em;
-}
-
-#container {
-  margin: 4em auto 2em;
-  text-align: center;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-}
-
 /******************************************************* sass maps/styles */
 $blackBorder: solid 0.5em black;
 
@@ -50,12 +22,62 @@ $hover_colors: (
   "blueHover": rgba(0, 0, 255, 0.514),
 );
 
-// $breakpoints: (
-//   "576px": 576px,
-//   "768px": 768px,
-//   "992px": 992px,
-//   "1366px": 1366px,
-// );
+$breakpoints: (
+  "576px": 576px,
+  "768px": 768px,
+  "992px": 992px,
+  "1200px": 1200px,
+  "1366px": 1366px,
+);
+
+/******************************************************* universal */
+* {
+  list-style: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Comfortaa", cursive;
+}
+
+body {
+  cursor: default;
+  background-color: rgb(247, 194, 97);
+}
+
+#title {
+  text-align: center;
+  font-size: 3.3em;
+  margin-top: 0.5em;
+}
+
+#container {
+  margin: 2em auto 2em;
+  text-align: center;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+/******************************************************************************* extra info*/
+@mixin stylesExtraInfo {
+  text-align: center;
+  font-size: 2em;
+}
+
+#extraInfo {
+  @include stylesExtraInfo();
+  & #yourScore,
+  & #highScore,
+  & #restart {
+    margin-top: 0.5em;
+  }
+  & #restart {
+    cursor: pointer;
+  }
+  & #restart:hover {
+    font-size: 1.1em;
+  }
+}
 
 /******************************************************************************* quarters */
 @mixin generalQuarters {
@@ -248,81 +270,197 @@ $hover_colors: (
   & input:checked[type="checkbox"]::before {
     left: 2.1em;
   }
-  & li:nth-child(3),
-  & li:nth-child(4) {
+  & li:nth-child(3) {
+    margin: 1em 0em;
+  }
+}
+
+/******************************************************************************* breakpoints */
+@media (min-width: map-get($breakpoints, "576px")) {
+  #extraInfo {
+    margin-top: 0.5em;
+    & #yourScore,
+    & #highScore {
+      display: inline;
+      padding: 0em 0.3em;
+    }
+  }
+
+  #container {
     margin-top: 1em;
   }
+
+  #simonBoard {
+    width: 30em;
+    height: 30em;
+    & .quarter {
+      width: 15em;
+      height: 15em;
+    }
+  }
+
+  #middleCircle {
+    margin: 7.5em;
+    height: 15em;
+    width: 15em;
+    & #toyName {
+      font-size: 2.5em;
+      margin: 0.3em 0em;
+    }
+    & li:nth-child(3) {
+      margin: 1.5em 0em;
+    }
+  }
 }
 
-@mixin stylesExtraInfo {
-  text-align: center;
-  font-size: 2em;
+@media (min-width: map-get($breakpoints, "768px")) {
+  #extraInfo {
+    & #yourScore,
+    & #highScore {
+      padding: 0em 1.8em;
+    }
+  }
+
+  #simonBoard {
+    width: 40em;
+    height: 40em;
+    & .quarter {
+      width: 20em;
+      height: 20em;
+    }
+  }
+
+  #middleCircle {
+    margin: 9.5em;
+    height: 22em;
+    width: 22em;
+    & #toyName {
+      font-size: 3em;
+      margin: 0.4em 0em;
+    }
+    & #score {
+      font-size: 2.5em;
+    }
+    & #startBtn,
+    & #strictBtn {
+      font-size: 2em;
+    }
+    & input[type="checkbox"] {
+      width: 9em;
+      height: 2em;
+    }
+    & #on,
+    & #off {
+      font-size: 2.5em;
+    }
+    & input[type="checkbox"]::before {
+      width: 2em;
+      height: 2em;
+      border-radius: 1em;
+    }
+    & input:checked[type="checkbox"]::before {
+      left: 7em;
+    }
+    & li:nth-child(3) {
+      margin: 2em 0em 1.5em;
+    }
+  }
 }
 
-#extraInfo {
-  @include stylesExtraInfo();
-  & #highScore,
-  & #restart {
-    margin-top: 0.5em;
+@media (min-width: map-get($breakpoints, "992px")) {
+  #title {
+    font-size: 4em;
   }
-  & #restart {
-    cursor: pointer;
-  }
-  & #restart:hover {
-    font-size: 1.1em;
+
+  #extraInfo {
+    & #yourScore,
+    & #highScore {
+      font-size: 1.3em;
+    }
+    & #restart {
+      font-size: 1.2em;
+      margin-top: 0em;
+    }
+    & #restart:hover {
+      font-size: 1.4em;
+    }
   }
 }
 
-/******************************************************* breakpoints */
-// @media (min-width: map-get($breakpoints, "576px")) {
-//   #left {
-//     left: 8.1em;
-//   }
+@media (min-width: map-get($breakpoints, "1200px")) {
+  #simonBoard {
+    width: 35em;
+    height: 35em;
+    & .quarter {
+      width: 17em;
+      height: 17em;
+    }
+  }
 
-//   #right {
-//     right: 8.1em;
-//   }
+  #middleCircle {
+    margin: 7.5em;
+    height: 20em;
+    width: 20em;
+    & #toyName {
+      font-size: 2.5em;
+      margin: 0.5em 0em;
+    }
+    & #score {
+      font-size: 2em;
+    }
+    & #startBtn,
+    & #strictBtn {
+      font-size: 1.8em;
+    }
+    & #on,
+    & #off {
+      font-size: 2em;
+    }
+  }
+}
 
-//   #middle {
-//     left: 6.5em;
-//   }
-// }
-// @media (min-width: map-get($breakpoints, "768px")) {
-//   #left {
-//     left: 14.1em;
-//   }
+@media (min-width: map-get($breakpoints, "1366px")) {
+  #title {
+    font-size: 5em;
+  }
 
-//   #right {
-//     right: 14.1em;
-//   }
+  #extraInfo {
+    & #yourScore,
+    & #highScore {
+      font-size: 1.5em;
+    }
+    & #restart {
+      font-size: 1.6em;
+      margin-top: 0em;
+    }
+    & #restart:hover {
+      font-size: 1.8em;
+    }
+  }
 
-//   #middle {
-//     left: 9.5em;
-//   }
-// }
-// @media (min-width: map-get($breakpoints, "992px")) {
-//   #left {
-//     left: 21.1em;
-//   }
+  #simonBoard {
+    width: 44em;
+    height: 44em;
+    & .quarter {
+      width: 22em;
+      height: 22em;
+    }
+  }
 
-//   #right {
-//     right: 21.1em;
-//   }
-
-//   #middle {
-//     left: 13em;
-//   }
-// }
-// @media (min-width: map-get($breakpoints, "1366px")) {
-//   #left {
-//     left: 33.1em;
-//   }
-
-//   #right {
-//     right: 32.4em;
-//   }
-
-//   #middle {
-//     left: 19em;
-//   }
-// }
+  #middleCircle {
+    margin: 9.5em;
+    height: 26em;
+    width: 26em;
+    & #toyName {
+      font-size: 3em;
+      margin-top: 1em;
+    }
+    & #score,
+    & #startBtn,
+    & #strictBtn,
+    & #on,
+    & #off {
+      font-size: 2.5em;
+    }
+  }
+}
