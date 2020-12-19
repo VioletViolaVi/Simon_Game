@@ -5,12 +5,12 @@
           box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #f7c261;
   font-family: "Comfortaa", cursive;
 }
 
 body {
   cursor: default;
+  background-color: #f7c261;
 }
 
 #title {
@@ -19,159 +19,71 @@ body {
   margin-top: 0.5em;
 }
 
-/******************************************************* Quarters */
-#left {
-  top: 7em;
-  position: absolute;
-  cursor: pointer;
-  left: 0.1em;
+#container {
+  margin: 6em auto;
+  text-align: center;
+  border: solid 0.5em black;
+  border-radius: 50%;
 }
 
-#left #topLeft {
-  width: 10em;
-  height: 10em;
-  margin: auto;
-  border: black solid 0.4em;
+/******************************************************* sass maps */
+/******************************************************************************* quarters */
+.quarter {
+  float: left;
+  width: 9em;
+  height: 9em;
+  border: solid 0.5em white;
+  cursor: pointer;
+}
+
+/******************************************************************************* colours */
+/******************************************************************************* hover colours */
+/******************************************************************************* full simon board */
+#simonBoard {
+  width: 19em;
+  height: 19em;
+  border: solid 0.5em gray;
+  border-radius: 50%;
+}
+
+#simonBoard .green {
   background-color: green;
   border-radius: 100% 0 0 0;
 }
 
-#left #topLeft:hover {
+#simonBoard .green:hover {
   background-color: rgba(0, 128, 0, 0.664);
 }
 
-#left #bottomLeft {
-  width: 10em;
-  height: 10em;
-  margin: auto;
-  border: black solid 0.4em;
-  background-color: yellow;
-  border-radius: 0 0 0 100%;
-}
-
-#left #bottomLeft:hover {
-  background-color: rgba(255, 255, 0, 0.582);
-}
-
-#right {
-  top: 7em;
-  position: absolute;
-  cursor: pointer;
-  right: 0.1em;
-}
-
-#right #topRight {
-  width: 10em;
-  height: 10em;
-  margin: auto;
-  border: black solid 0.4em;
+#simonBoard .red {
   background-color: red;
   border-radius: 0 100% 0 0;
 }
 
-#right #topRight:hover {
+#simonBoard .red:hover {
   background-color: rgba(255, 0, 0, 0.63);
 }
 
-#right #bottomRight {
-  width: 10em;
-  height: 10em;
-  margin: auto;
-  border: black solid 0.4em;
+#simonBoard .yellow {
+  background-color: yellow;
+  border-radius: 0 0 0 100%;
+}
+
+#simonBoard .yellow:hover {
+  background-color: rgba(255, 255, 0, 0.582);
+}
+
+#simonBoard .blue {
   background-color: blue;
   border-radius: 0 0 100% 0;
 }
 
-#right #bottomRight:hover {
+#simonBoard .blue:hover {
   background-color: rgba(0, 0, 255, 0.514);
 }
 
+/******************************************************* Quarters */
 /******************************************************* middle circle */
-#middle {
-  height: 5em;
-  width: 5em;
-  background-color: white;
-  border-radius: 100%;
-  position: absolute;
-  top: 6em;
-  left: 2.5em;
-  z-index: 1;
-  border: black solid 0.3em;
-  cursor: pointer;
-  font-weight: 900;
-  font-size: 2em;
-}
-
-#middle:focus {
-  outline: none;
-}
-
-#middle:hover {
-  background-color: whitesmoke;
-}
-
 /******************************************************* scores & reset */
-#scoresAndRestart {
-  font-size: 2.5em;
-  text-align: center;
-  padding-top: 9.5em;
-}
-
-#highScore {
-  padding-top: 0.1em;
-}
-
-#restart {
-  padding-top: 0.5em;
-  cursor: pointer;
-}
-
 /******************************************************* breakpoints */
-@media (min-width: 576px) {
-  #left {
-    left: 8.1em;
-  }
-  #right {
-    right: 8.1em;
-  }
-  #middle {
-    left: 6.5em;
-  }
-}
-
-@media (min-width: 768px) {
-  #left {
-    left: 14.1em;
-  }
-  #right {
-    right: 14.1em;
-  }
-  #middle {
-    left: 9.5em;
-  }
-}
-
-@media (min-width: 992px) {
-  #left {
-    left: 21.1em;
-  }
-  #right {
-    right: 21.1em;
-  }
-  #middle {
-    left: 13em;
-  }
-}
-
-@media (min-width: 1366px) {
-  #left {
-    left: 33.1em;
-  }
-  #right {
-    right: 32.4em;
-  }
-  #middle {
-    left: 19em;
-  }
-}
 /*# sourceMappingURL=style.css.map */

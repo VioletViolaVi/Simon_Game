@@ -1,3 +1,38 @@
+/******************************************************* universal */
+* {
+  list-style: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Comfortaa", cursive;
+}
+
+body {
+  cursor: default;
+  background-color: rgb(247, 194, 97);
+}
+
+#title {
+  text-align: center;
+  font-size: 3.3em;
+  margin-top: 0.5em;
+}
+
+#container {
+  margin: 6em auto;
+  text-align: center;
+  border: solid 0.5em black;
+  border-radius: 50%;
+}
+
+/******************************************************* sass maps */
+$curvedQuarters: (
+  "greenTL": 100% 0 0 0,
+  "redTR": 0 100% 0 0,
+  "yellowBL": 0 0 0 100%,
+  "blueBR": 0 0 100% 0,
+);
+
 $background_colors: (
   "greenBG": green,
   "redBG": red,
@@ -12,203 +47,312 @@ $hover_colors: (
   "blueHover": rgba(0, 0, 255, 0.514),
 );
 
-$quarterPlacement: (
-  "topLeft": 100% 0 0 0,
-  "topRight": 0 100% 0 0,
-  "bottomLeft": 0 0 0 100%,
-  "bottomRight": 0 0 100% 0,
-);
+// $breakpoints: (
+//   "576px": 576px,
+//   "768px": 768px,
+//   "992px": 992px,
+//   "1366px": 1366px,
+// );
 
-$breakpoints: (
-  "576px": 576px,
-  "768px": 768px,
-  "992px": 992px,
-  "1366px": 1366px,
-);
-
-/******************************************************* universal */
-* {
-  list-style: none;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  background-color: rgb(247, 194, 97);
-  font-family: "Comfortaa", cursive;
+/******************************************************************************* quarters */
+@mixin generalQuarters {
+  // position: relative;
+  // margin: 0em;
+  float: left;
+  width: 9em;
+  height: 9em;
+  border: solid 0.5em white;
+  cursor: pointer;
 }
 
-body {
-  cursor: default;
+.quarter {
+  @include generalQuarters();
 }
 
-#title {
-  text-align: center;
-  font-size: 3.3em;
-  margin-top: 0.5em;
+/******************************************************************************* colours */
+@mixin greenQuarter($greenPlaceholder, $greenCurvePlaceholder) {
+  background-color: $greenPlaceholder;
+  border-radius: $greenCurvePlaceholder;
 }
+
+@mixin redQuarter($redPlaceholder, $redCurvePlaceholder) {
+  background-color: $redPlaceholder;
+  border-radius: $redCurvePlaceholder;
+}
+
+@mixin yellowQuarter($yellowPlaceholder, $yellowCurvePlaceholder) {
+  background-color: $yellowPlaceholder;
+  border-radius: $yellowCurvePlaceholder;
+}
+
+@mixin blueQuarter($bluePlaceholder, $blueCurvePlaceholder) {
+  background-color: $bluePlaceholder;
+  border-radius: $blueCurvePlaceholder;
+}
+
+/******************************************************************************* hover colours */
+@mixin greenHoverQuarter($greenHoverPlaceholder) {
+  background-color: $greenHoverPlaceholder;
+}
+
+@mixin redHoverQuarter($redHoverPlaceholder) {
+  background-color: $redHoverPlaceholder;
+}
+
+@mixin yellowHoverQuarter($yellowHoverPlaceholder) {
+  background-color: $yellowHoverPlaceholder;
+}
+
+@mixin blueHoverQuarter($blueHoverPlaceholder) {
+  background-color: $blueHoverPlaceholder;
+}
+
+/******************************************************************************* full simon board */
+@mixin simonBoard {
+  width: 19em;
+  height: 19em;
+  border: solid 0.5em gray;
+  border-radius: 50%;
+}
+
+#simonBoard {
+  @include simonBoard();
+  & .green {
+    @include greenQuarter(
+      map-get($background_colors, "greenBG"),
+      map-get($curvedQuarters, "greenTL")
+    );
+  }
+  & .green:hover {
+    @include greenHoverQuarter(map-get($hover_colors, "greenHover"));
+  }
+
+  & .red {
+    @include redQuarter(
+      map-get($background_colors, "redBG"),
+      map-get($curvedQuarters, "redTR")
+    );
+  }
+  & .red:hover {
+    @include redHoverQuarter(map-get($hover_colors, "redHover"));
+  }
+
+  & .yellow {
+    @include yellowQuarter(
+      map-get($background_colors, "yellowBG"),
+      map-get($curvedQuarters, "yellowBL")
+    );
+  }
+  & .yellow:hover {
+    @include yellowHoverQuarter(map-get($hover_colors, "yellowHover"));
+  }
+
+  & .blue {
+    @include blueQuarter(
+      map-get($background_colors, "blueBG"),
+      map-get($curvedQuarters, "blueBR")
+    );
+  }
+
+  & .blue:hover {
+    @include blueHoverQuarter(map-get($hover_colors, "blueHover"));
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /******************************************************* Quarters */
-@mixin leftAndRight {
-  top: 7em;
-  position: absolute;
-  cursor: pointer;
-}
+// @mixin leftAndRight {
+//   top: 7em;
+//   position: absolute;
+//   cursor: pointer;
+// }
 
-@mixin quarters($colorPlaceholder, $orderPlaceholder) {
-  width: 10em;
-  height: 10em;
-  margin: auto;
-  border: black solid 0.4em;
-  background-color: $colorPlaceholder;
-  border-radius: $orderPlaceholder;
-}
+// @mixin quarters($colorPlaceholder, $orderPlaceholder) {
+//   width: 8em;
+//   height: 8em;
+//   margin: auto;
+//   border: black solid 0.4em;
+//   background-color: $colorPlaceholder;
+//   border-radius: $orderPlaceholder;
+// }
 
-@mixin hovers($hoversPlaceholder) {
-  background-color: $hoversPlaceholder;
-}
+// @mixin hovers($hoversPlaceholder) {
+//   background-color: $hoversPlaceholder;
+// }
 
-#left {
-  @include leftAndRight;
-  left: 0.1em;
-  & #topLeft {
-    @include quarters(
-      map-get($background_colors, "greenBG"),
-      map-get($quarterPlacement, "topLeft")
-    );
-  }
-  & #topLeft:hover {
-    @include hovers(map-get($hover_colors, "greenHover"));
-  }
+// #left {
+//   @include leftAndRight;
+//   left: 2em;
+//   & #topLeft {
+//     @include quarters(
+//       map-get($background_colors, "greenBG"),
+//       map-get($quarterPlacement, "topLeft")
+//     );
+//   }
+//   & #topLeft:hover {
+//     @include hovers(map-get($hover_colors, "greenHover"));
+//   }
 
-  & #bottomLeft {
-    @include quarters(
-      map-get($background_colors, "yellowBG"),
-      map-get($quarterPlacement, "bottomLeft")
-    );
-  }
-  & #bottomLeft:hover {
-    @include hovers(map-get($hover_colors, "yellowHover"));
-  }
-}
+//   & #bottomLeft {
+//     @include quarters(
+//       map-get($background_colors, "yellowBG"),
+//       map-get($quarterPlacement, "bottomLeft")
+//     );
+//   }
+//   & #bottomLeft:hover {
+//     @include hovers(map-get($hover_colors, "yellowHover"));
+//   }
+// }
 
-#right {
-  @include leftAndRight;
-  right: 0.1em;
-  & #topRight {
-    @include quarters(
-      map-get($background_colors, "redBG"),
-      map-get($quarterPlacement, "topRight")
-    );
-  }
-  & #topRight:hover {
-    @include hovers(map-get($hover_colors, "redHover"));
-  }
-  & #bottomRight {
-    @include quarters(
-      map-get($background_colors, "blueBG"),
-      map-get($quarterPlacement, "bottomRight")
-    );
-  }
-  & #bottomRight:hover {
-    @include hovers(map-get($hover_colors, "blueHover"));
-  }
-}
+// #right {
+//   @include leftAndRight;
+//   right: 2em;
+//   & #topRight {
+//     @include quarters(
+//       map-get($background_colors, "redBG"),
+//       map-get($quarterPlacement, "topRight")
+//     );
+//   }
+//   & #topRight:hover {
+//     @include hovers(map-get($hover_colors, "redHover"));
+//   }
+//   & #bottomRight {
+//     @include quarters(
+//       map-get($background_colors, "blueBG"),
+//       map-get($quarterPlacement, "bottomRight")
+//     );
+//   }
+//   & #bottomRight:hover {
+//     @include hovers(map-get($hover_colors, "blueHover"));
+//   }
+// }
 
 /******************************************************* middle circle */
-@mixin middleCircle {
-  height: 5em;
-  width: 5em;
-  background-color: white;
-  border-radius: 100%;
-  position: absolute;
-  top: 6em;
-  left: 2.5em;
-  z-index: 1;
-  border: black solid 0.3em;
-  cursor: pointer;
-  font-weight: 900;
-  font-size: 2em;
-}
+// @mixin middleCircle {
+//   height: 4em;
+//   width: 4em;
+//   background-color: white;
+//   border-radius: 100%;
+//   position: absolute;
+//   top: 5em;
+//   left: 2.5em;
+//   z-index: 1;
+//   border: black solid 0.3em;
+//   cursor: pointer;
+//   font-weight: 900;
+//   font-size: 2em;
+// }
 
-#middle {
-  @include middleCircle();
-  &:focus {
-    outline: none;
-  }
-  &:hover {
-    background-color: whitesmoke;
-  }
-}
+// #middle {
+//   @include middleCircle();
+//   &:focus {
+//     outline: none;
+//   }
+//   &:hover {
+//     background-color: whitesmoke;
+//   }
+// }
+
+// @mixin onOffBtn {
+//   position: absolute;
+//   top: 23em;
+//   left: 11em;
+//   z-index: 1;
+//   height: 2em;
+//   width: 2em;
+// }
+
+// #onOff {
+//   @include onOffBtn();
+// }
 
 /******************************************************* scores & reset */
-@mixin scoresAndReset {
-  font-size: 2.5em;
-  text-align: center;
-  padding-top: 9.5em;
-}
+// @mixin scoresAndReset {
+//   font-size: 2.5em;
+//   text-align: center;
+//   padding-top: 9.5em;
+// }
 
-#scoresAndRestart {
-  @include scoresAndReset();
-}
+// #scoresAndRestart {
+//   @include scoresAndReset();
+// }
 
-#highScore {
-  padding-top: 0.1em;
-}
+// #highScore {
+//   padding-top: 0.1em;
+// }
 
-#restart {
-  padding-top: 0.5em;
-  cursor: pointer;
-}
+// #restart {
+//   padding-top: 0.5em;
+//   cursor: pointer;
+// }
 
 /******************************************************* breakpoints */
-@media (min-width: map-get($breakpoints, "576px")) {
-  #left {
-    left: 8.1em;
-  }
+// @media (min-width: map-get($breakpoints, "576px")) {
+//   #left {
+//     left: 8.1em;
+//   }
 
-  #right {
-    right: 8.1em;
-  }
+//   #right {
+//     right: 8.1em;
+//   }
 
-  #middle {
-    left: 6.5em;
-  }
-}
-@media (min-width: map-get($breakpoints, "768px")) {
-  #left {
-    left: 14.1em;
-  }
+//   #middle {
+//     left: 6.5em;
+//   }
+// }
+// @media (min-width: map-get($breakpoints, "768px")) {
+//   #left {
+//     left: 14.1em;
+//   }
 
-  #right {
-    right: 14.1em;
-  }
+//   #right {
+//     right: 14.1em;
+//   }
 
-  #middle {
-    left: 9.5em;
-  }
-}
-@media (min-width: map-get($breakpoints, "992px")) {
-  #left {
-    left: 21.1em;
-  }
+//   #middle {
+//     left: 9.5em;
+//   }
+// }
+// @media (min-width: map-get($breakpoints, "992px")) {
+//   #left {
+//     left: 21.1em;
+//   }
 
-  #right {
-    right: 21.1em;
-  }
+//   #right {
+//     right: 21.1em;
+//   }
 
-  #middle {
-    left: 13em;
-  }
-}
-@media (min-width: map-get($breakpoints, "1366px")) {
-  #left {
-    left: 33.1em;
-  }
+//   #middle {
+//     left: 13em;
+//   }
+// }
+// @media (min-width: map-get($breakpoints, "1366px")) {
+//   #left {
+//     left: 33.1em;
+//   }
 
-  #right {
-    right: 32.4em;
-  }
+//   #right {
+//     right: 32.4em;
+//   }
 
-  #middle {
-    left: 19em;
-  }
-}
+//   #middle {
+//     left: 19em;
+//   }
+// }
