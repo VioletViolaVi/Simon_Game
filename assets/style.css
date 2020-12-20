@@ -12,6 +12,12 @@
 body {
   cursor: default;
   background-color: #f7c261;
+  /* removes blue highlight */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #title {
@@ -75,7 +81,7 @@ body {
   border-radius: 100% 0 0 0;
 }
 
-#simonBoard .green:hover {
+#simonBoard .greenActive {
   background-color: rgba(0, 128, 0, 0.664);
 }
 
@@ -84,7 +90,7 @@ body {
   border-radius: 0 100% 0 0;
 }
 
-#simonBoard .red:hover {
+#simonBoard .redActive {
   background-color: rgba(255, 0, 0, 0.63);
 }
 
@@ -93,7 +99,7 @@ body {
   border-radius: 0 0 0 100%;
 }
 
-#simonBoard .yellow:hover {
+#simonBoard .yellowActive {
   background-color: rgba(255, 255, 0, 0.582);
 }
 
@@ -102,7 +108,7 @@ body {
   border-radius: 0 0 100% 0;
 }
 
-#simonBoard .blue:hover {
+#simonBoard .blueActive {
   background-color: rgba(0, 0, 255, 0.514);
 }
 
@@ -125,7 +131,7 @@ body {
   margin-bottom: 0.3em;
 }
 
-#middleCircle #score {
+#middleCircle #level {
   background-color: orange;
   display: inline;
   padding: 0.2em 0.9em 0em;
@@ -249,7 +255,7 @@ body {
     font-size: 3em;
     margin: 0.4em 0em;
   }
-  #middleCircle #score {
+  #middleCircle #level {
     font-size: 2.5em;
   }
   #middleCircle #startBtn,
@@ -312,7 +318,7 @@ body {
     font-size: 2.5em;
     margin: 0.5em 0em;
   }
-  #middleCircle #score {
+  #middleCircle #level {
     font-size: 2em;
   }
   #middleCircle #startBtn,
@@ -357,7 +363,7 @@ body {
     font-size: 3em;
     margin-top: 1em;
   }
-  #middleCircle #score,
+  #middleCircle #level,
   #middleCircle #startBtn,
   #middleCircle #strictBtn,
   #middleCircle #on,

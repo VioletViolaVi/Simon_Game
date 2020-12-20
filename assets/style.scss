@@ -42,6 +42,13 @@ $breakpoints: (
 body {
   cursor: default;
   background-color: rgb(247, 194, 97);
+  /* removes blue highlight */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #title {
@@ -145,7 +152,7 @@ body {
       map-get($curvedQuarters, "greenTL")
     );
   }
-  & .green:hover {
+  & .greenActive {
     @include greenHoverQuarter(map-get($hover_colors, "greenHover"));
   }
 
@@ -155,7 +162,7 @@ body {
       map-get($curvedQuarters, "redTR")
     );
   }
-  & .red:hover {
+  & .redActive {
     @include redHoverQuarter(map-get($hover_colors, "redHover"));
   }
 
@@ -165,7 +172,7 @@ body {
       map-get($curvedQuarters, "yellowBL")
     );
   }
-  & .yellow:hover {
+  & .yellowActive {
     @include yellowHoverQuarter(map-get($hover_colors, "yellowHover"));
   }
 
@@ -176,7 +183,7 @@ body {
     );
   }
 
-  & .blue:hover {
+  & .blueActive {
     @include blueHoverQuarter(map-get($hover_colors, "blueHover"));
   }
 }
@@ -245,7 +252,7 @@ body {
   & #toyName {
     @include stylesToyName();
   }
-  & #score {
+  & #level {
     @include stylesScore();
   }
   & #startBtn {
@@ -338,7 +345,7 @@ body {
       font-size: 3em;
       margin: 0.4em 0em;
     }
-    & #score {
+    & #level {
       font-size: 2.5em;
     }
     & #startBtn,
@@ -405,7 +412,7 @@ body {
       font-size: 2.5em;
       margin: 0.5em 0em;
     }
-    & #score {
+    & #level {
       font-size: 2em;
     }
     & #startBtn,
@@ -455,7 +462,7 @@ body {
       font-size: 3em;
       margin-top: 1em;
     }
-    & #score,
+    & #level,
     & #startBtn,
     & #strictBtn,
     & #on,
