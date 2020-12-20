@@ -6,3 +6,9 @@ The app is a re-creation of the classic Simon Game. In producing this game the f
 - JavaScript to add the logic and functionality to make the game work.
 - jQuery to use shorter lines of code in writing the JavaScript when adding the logic and functionality to make the game work.
 - Google Fonts to provide the font used for the game.
+
+The following sources were used to provide the beeping sounds of this game:
+- [Short Cut-Off Beep.wav](https://freesound.org/people/KorgMS2000B/sounds/54415/)
+- [Nintedo Game Boy LSDJ drums » beep.wav](https://freesound.org/people/altemark/sounds/39747/)
+- [beep.wav](https://freesound.org/people/shukran/sounds/53243/)
+- [beep.wav](https://freesound.org/people/carbilicon/sounds/65243/)

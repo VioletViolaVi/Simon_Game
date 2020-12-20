@@ -1,4 +1,46 @@
 $("document").ready(function () {
+  
+  let simonFlashOrder = [];
+  let userInputOrder = [];
+
+  function hideScoresText() {
+    $("#yourScore").hide();
+    $("#highScore").hide();
+    $("#restart").hide();
+  }
+  hideScoresText();
+
+  $("#startBtn").click(function () {
+    beginGame();
+    console.log("hi");
+  });
+
+  function beginGame() {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // let flash;
   // let flashOrder = [];
 
@@ -40,30 +82,4 @@ $("document").ready(function () {
   //   });
   // }
   // greenBtn();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
 });
