@@ -28,25 +28,36 @@ $("document").ready(function () {
   }
   startRound();
 
+  // for users picking colours
+  function userColourInput() {
+    $(".quarter").click(function () {
+      htmlID = $(this).attr("id");
+      flashColour = $("#" + htmlID).attr("class").split(" ")[1];
+      flashHighlightAndSound(htmlID, flashColour);
+    });
+  }
+  userColourInput();
+
   // changes game level
   function changeGameLevel() {
     $("#level").text(flashLevel);
+    console.log("Level: " + flashLevel);
   }
 
-  let indexContent = 0;
+  let htmlID = 0;
   let flashColour = 0;
-  let simonFlashOrder = [];
+  let simonFlashOrder = [0, 2, 1];
 
   // controls simon sequence
   function handleSimonSequence() {
     changeGameLevel();
-    produceRandomNumForSimonFlashOrder();
+    // produceRandomNumForSimonFlashOrder();
     let indexOfSimonArray = 0;
     let myInterval = setInterval(function () {
-      indexContent = simonFlashOrder[indexOfSimonArray];
-      flashColour = $("#" + indexContent).attr("class").split(" ")[1];
-      console.log("indexContent: " + indexContent + " flashColour: " + flashColour);
-      flashHighlightAndSound(indexContent, flashColour);
+      htmlID = simonFlashOrder[indexOfSimonArray];
+      flashColour = $("#" + htmlID).attr("class").split(" ")[1];
+      console.log("htmlID: " + htmlID + " flashColour: " + flashColour);
+      flashHighlightAndSound(htmlID, flashColour);
       indexOfSimonArray++;
       if (indexOfSimonArray === simonFlashOrder.length) {
         clearInterval(myInterval);
