@@ -1,11 +1,44 @@
 // DELETE ALL CONSOLE LOGS AT END
 $("document").ready(function () {
-  let beepSounds = [
-    "https://freesound.org/people/KorgMS2000B/sounds/54415/",
-    "https://freesound.org/people/altemark/sounds/39747/",
-    "https://freesound.org/people/shukran/sounds/53243/",
-    "https://freesound.org/people/carbilicon/sounds/65243/",
-  ];
+  // green noise
+  function greenSound() {
+    $(".green").click(function () {
+      let greenSound = document.getElementById("beep1");
+      greenSound.play();
+      console.log("greenSound: " + greenSound);
+    });
+  }
+  greenSound();
+
+  // red noise
+  function redSound() {
+    $(".red").click(function () {
+      let redSound = document.getElementById("beep2");
+      redSound.play();
+      console.log("redSound: " + redSound);
+    });
+  }
+  redSound();
+
+  // yellow noise
+  function yellowSound() {
+    $(".yellow").click(function () {
+      let yellowSound = document.getElementById("beep3");
+      yellowSound.play();
+      console.log("yellowSound: " + yellowSound);
+    });
+  }
+  yellowSound();
+
+  // blue noise
+  function blueSound() {
+    $(".blue").click(function () {
+      let blueSound = document.getElementById("beep4");
+      blueSound.play();
+      console.log("blueSound: " + blueSound);
+    });
+  }
+  blueSound();
 
   // hides text scores
   function hideScoresText() {
@@ -117,14 +150,24 @@ $("document").ready(function () {
   }
 
   // added highlight colours and sounds
-  function flashHighlightAndSound(id, flashColour) {
-    $("#" + id).addClass(flashColour + "Active");
-    // playSimonSounds(id);
+  function flashHighlightAndSound(htmlID, flashColour) {
+    $("#" + htmlID).addClass(flashColour + "Active");
+    playSimonSounds(htmlID);
     setTimeout(function () {
-      $("#" + id).removeClass(flashColour + "Active");
+      $("#" + htmlID).removeClass(flashColour + "Active");
     }, 500);
   }
 
+  let beepSounds = [
+    "media/sounds/beep1.mp3",
+    "media/sounds/beep2.mp3",
+    "media/sounds/beep3.mp3",
+    "media/sounds/beep4.mp3",
+  ];
+
   // sounds for game
-  function playSimonSounds(id) {}
+  function playSimonSounds(htmlID) {
+    let sound = new Audio(beepSounds[htmlID]);
+    sound.play();
+  }
 });
