@@ -1,9 +1,5 @@
 // DELETE ALL CONSOLE LOGS AT END
 $("document").ready(function () {
-
-  let flashLevel = 0;
-
-  let userInputOrder = [];
   let beepSounds = [
     "https://freesound.org/people/KorgMS2000B/sounds/54415/",
     "https://freesound.org/people/altemark/sounds/39747/",
@@ -19,6 +15,8 @@ $("document").ready(function () {
   }
   hideScoresText();
 
+  let flashLevel = 0;
+
   // starts game round
   function startRound() {
     $("#startBtn").click(function () {
@@ -28,15 +26,58 @@ $("document").ready(function () {
   }
   startRound();
 
+  let userInputOrder = [];
+
   // for users picking colours
   function userColourInput() {
     $(".quarter").click(function () {
       htmlID = $(this).attr("id");
-      flashColour = $("#" + htmlID).attr("class").split(" ")[1];
+      flashColour = $(this).attr("class").split(" ")[1];
+      userInputOrder.push(htmlID);
+      console.log("htmlID: " + htmlID + " flashColour: " + flashColour);
+      console.log("userInputOrder: " + userInputOrder);
       flashHighlightAndSound(htmlID, flashColour);
+      // check user's input order
+      if (!compareUserInputWithSimon()) {
+        displayError();
+        userInputOrder = [];
+      }
+      // occurs when user's length input is same as simon's
+      if (userInputOrder.length === simonFlashOrder.length) {
+        flashLevel++;
+        userInputOrder = [];
+        handleSimonSequence();
+      }
     });
   }
   userColourInput();
+
+  // check user's input with simon's
+  function compareUserInputWithSimon() {
+    for (let index = 0; index < userInputOrder.length; index++) {
+      if (userInputOrder[index] != simonFlashOrder[index]) {
+        return false;
+      }
+    }
+    return true;
+  }
+  compareUserInputWithSimon();
+
+  // shows error
+  function displayError() {
+    console.log("ERROR");
+    let counter = 0;
+    let myError = setInterval(() => {
+      $("#level").text("--");
+      counter++;
+      if (counter === 3) {
+        $("#level").text(flashLevel);
+        clearInterval(myError);
+        userInputOrder = [];
+        counter = 0;
+      }
+    }, 500);
+  }
 
   // changes game level
   function changeGameLevel() {
@@ -47,6 +88,7 @@ $("document").ready(function () {
   let htmlID = 0;
   let flashColour = 0;
   let simonFlashOrder = [0, 2, 1];
+  let numOfLevels = 3;
 
   // controls simon sequence
   function handleSimonSequence() {
@@ -55,8 +97,10 @@ $("document").ready(function () {
     let indexOfSimonArray = 0;
     let myInterval = setInterval(function () {
       htmlID = simonFlashOrder[indexOfSimonArray];
-      flashColour = $("#" + htmlID).attr("class").split(" ")[1];
-      console.log("htmlID: " + htmlID + " flashColour: " + flashColour);
+      flashColour = $("#" + htmlID)
+        .attr("class")
+        .split(" ")[1];
+      // console.log("htmlID: " + htmlID + " flashColour: " + flashColour);
       flashHighlightAndSound(htmlID, flashColour);
       indexOfSimonArray++;
       if (indexOfSimonArray === simonFlashOrder.length) {
@@ -74,85 +118,13 @@ $("document").ready(function () {
 
   // added highlight colours and sounds
   function flashHighlightAndSound(id, flashColour) {
-    $("#" + id).addClass(flashColour +"Active");
+    $("#" + id).addClass(flashColour + "Active");
     // playSimonSounds(id);
     setTimeout(function () {
-      $("#" + id).removeClass(flashColour +"Active");
+      $("#" + id).removeClass(flashColour + "Active");
     }, 500);
   }
 
   // sounds for game
   function playSimonSounds(id) {}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // let flash;
-  // let flashOrder = [];
-
-  // let playerInputOrder = [];
-
-  // let score = 0;
-  // let highScore = 0;
-
-  // let green = document.querySelector("#topLeft");
-  // let red = document.querySelector("#topRight");
-  // let yellow = document.querySelector("#bottomLeft");
-  // let blue = document.querySelector("#bottomRight");
-
-  // let start = document.querySelector("#middle");
-
-  // function startBtn() {
-  //   start.addEventListener("click", function () {
-  //     if (start) {
-  //       console.log("START");
-  //       beginGame();
-  //     }
-  //   });
-  // }
-  // startBtn();
-
-  // function beginGame() {
-  //   let flashOrder = [];
-  //   let playerInputOrder = [];
-  //   let score = 0;
-  //   $("#highScore").hide();
-  //   $("#restart").hide();
-  // }
-
-  // function greenBtn() {
-  //   green.addEventListener("click", function () {
-  //     if (green) {
-  //       console.log("green");
-  //     }
-  //   });
-  // }
-  // greenBtn();
 });

@@ -82,7 +82,7 @@ body {
 }
 
 #simonBoard .greenActive {
-  background-color: rgba(0, 128, 0, 0.664);
+  background-color: rgba(2, 54, 2, 0.664);
 }
 
 #simonBoard .red {
@@ -91,7 +91,7 @@ body {
 }
 
 #simonBoard .redActive {
-  background-color: rgba(255, 0, 0, 0.63);
+  background-color: rgba(71, 2, 2, 0.63);
 }
 
 #simonBoard .yellow {
@@ -100,7 +100,7 @@ body {
 }
 
 #simonBoard .yellowActive {
-  background-color: rgba(255, 255, 0, 0.582);
+  background-color: rgba(95, 95, 2, 0.582);
 }
 
 #simonBoard .blue {
@@ -109,7 +109,7 @@ body {
 }
 
 #simonBoard .blueActive {
-  background-color: rgba(0, 0, 255, 0.514);
+  background-color: rgba(2, 2, 66, 0.514);
 }
 
 /******************************************************************************* middle circle*/
