@@ -1,10 +1,9 @@
 $("document").ready(function () {
-  
   let htmlID = 0;
   let flashColour = 0;
-  let flashLevel = 0;  
-  let numOfLevels = 500;  
-  let userInputOrder = [];  
+  let flashLevel = 0;
+  let numOfLevels = 500;
+  let userInputOrder = [];
   let simonFlashOrder = [];
   let beepSounds = [
     "media/sounds/beep1.mp3",
@@ -12,6 +11,7 @@ $("document").ready(function () {
     "media/sounds/beep3.mp3",
     "media/sounds/beep4.mp3",
   ];
+  let gameOverSound = "media/sounds/gameover.wav";
 
   // hides text scores
   function hideScoresText() {
@@ -43,12 +43,15 @@ $("document").ready(function () {
         userInputOrder = [];
       }
       // occurs when user's length input is same as simon's
-      if (userInputOrder.length === simonFlashOrder.length && userInputOrder.length < numOfLevels) {
+      if (
+        userInputOrder.length === simonFlashOrder.length &&
+        userInputOrder.length < numOfLevels
+      ) {
         flashLevel++;
         userInputOrder = [];
         handleSimonSequence();
       }
-      // checking for winners 
+      // checking for winners
       if (userInputOrder.length === numOfLevels) {
         $("#level").text("Win");
       }
@@ -70,7 +73,9 @@ $("document").ready(function () {
   // shows error
   function displayError() {
     let counter = 0;
-    let myError = setInterval(function() {
+    let myError = setInterval(function () {
+      let sound = new Audio(gameOverSound);
+      sound.play();
       $("#level").text("--");
       counter++;
       if (counter === 3) {

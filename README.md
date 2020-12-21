@@ -15,10 +15,11 @@ The following sources were used to provide the beeping sounds of this game:
 - [Nintedo Game Boy LSDJ drums » beep.wav](https://freesound.org/people/altemark/sounds/39747/)
 - [beep.wav](https://freesound.org/people/shukran/sounds/53243/)
 - [beep.wav](https://freesound.org/people/carbilicon/sounds/65243/)
+- [BOLO_Julie_2014_2015_GameOver.wav](https://freesound.org/people/Lysaura/sounds/253705/)
 
 The following sources were used as references to help build this project:
 
 - [How to Program Simon Game: CSS](https://www.youtube.com/watch?v=muPIIfjazcU&ab_channel=roottech)
 - [How to Program Simon Game: Javascript Part 1](https://www.youtube.com/watch?v=9MTR3V2XpRI&ab_channel=roottech)
 - [How to Program Simon Game: Javascript Part 2](https://www.youtube.com/watch?v=iXscqYgZ7HQ)
-- [Simon Game JavaScript Tutorial for Beginners](https://www.youtube.com/watch?v=n_ec3eowFLQ&t=2194s&ab_channel=freeCodeCamp.org)
+- [Simon Game JavaScript Tutorial for Beginners](https://www.youtube.com/watch?v=n_ec3eowFLQ&t=2194s&ab_channel=freeCodeCamp.org)****
